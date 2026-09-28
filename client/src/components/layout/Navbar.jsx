@@ -42,7 +42,7 @@ function Navbar({ theme, toggleTheme }) {
           marginRight: "150px",
         }}
       >
-        Prooffolio
+        Vouch
       </Link>
 
  {/* Navigation */}
