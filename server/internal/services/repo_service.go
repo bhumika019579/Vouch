@@ -1,7 +1,7 @@
 package services
 
 import (
-	"github.com/bhumika019579/prooffolio/server/internal/models"
+	"github.com/bhumika019579/Vouch/server/internal/models"
 	"gorm.io/gorm"
 )
 

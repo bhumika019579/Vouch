@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/bhumika019579/prooffolio/server/internal/models"
+	"github.com/bhumika019579/Vouch/server/internal/models"
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
 )
@@ -49,7 +49,7 @@ func GetAllLikes(db *gorm.DB) gin.HandlerFunc {
 			c.JSON(http.StatusBadRequest, gin.H{"error": "invalid post id"})
 			return
 		}
-		
+
 		var post models.Post
 		if err := db.First(&post, uint(postIDUint)).Error; err != nil {
 			c.JSON(http.StatusNotFound, gin.H{"error": "post not found"})
@@ -58,10 +58,10 @@ func GetAllLikes(db *gorm.DB) gin.HandlerFunc {
 		var likes []models.Like
 		result := db.Where("post_id=?", uint(postIDUint)).Preload("User").Order("created_at desc").
 			Find(&likes)
-			if result.Error != nil {
-          c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to fetch likes"})
-         return
-			}
+		if result.Error != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "failed to fetch likes"})
+			return
+		}
 
 		c.JSON(http.StatusOK, likes)
 
