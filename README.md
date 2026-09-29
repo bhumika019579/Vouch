@@ -4,7 +4,7 @@
 
 **Vouch** helps developers turn their GitHub presence into a complete, discoverable developer profile. Developers can **sign in with GitHub, showcase their repositories, share posts, interact with other developers, and discover developers based on programming languages.**
 
-## Why Vouch?
+## 💡Why Vouch?
 
 A developer's work is often scattered across different platforms.
 
@@ -65,7 +65,7 @@ The backend uses **JWT authentication, protected API routes, and environment-bas
 
 ## Getting Started
 
-### Prerequisites
+### 📋Prerequisites
 
 Make sure you have:
 
@@ -101,17 +101,14 @@ Copy the example environment file and add your credentials:
 
 **Never commit your `.env` file or expose your API keys.**
 
-## Live Demo
+## 🌐Live Demo
 
 **Coming soon**
 
-## Author
+## 👩‍💻Author
 
 **Bhumika Chanchlani**
 
 **GitHub:** https://github.com/bhumika019579  
 **Portfolio:** https://bhumika019579.github.io/portfolio
 
-## License
-
-**MIT License**
