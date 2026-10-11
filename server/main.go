@@ -16,7 +16,7 @@ func main() {
 	_ = database
 	r := gin.Default()
 	r.Use(cors.New(cors.Config{
-		AllowOrigins:     []string{"http://localhost:5173"},
+		AllowOrigins:     []string{"https://vouch-ivory-three.vercel.app/"},
 		AllowMethods:     []string{"GET", "POST", "PATCH", "DELETE", "OPTIONS"},
 		AllowHeaders:     []string{"Authorization", "Content-Type"},
 		AllowCredentials: true,
