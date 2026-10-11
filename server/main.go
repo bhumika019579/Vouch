@@ -22,7 +22,7 @@ func main() {
     log.Printf("RESPONSE: %s %s -> %d", c.Request.Method, c.Request.URL.Path, c.Writer.Status())
 })
 	r.Use(cors.New(cors.Config{
-		AllowOrigins:     []string{"https://vouch-ivory-three.vercel.app/"},
+		AllowOrigins:     []string{"https://vouch-ivory-three.vercel.app"},
 		AllowMethods:     []string{"GET", "POST", "PATCH", "DELETE", "OPTIONS"},
 		AllowHeaders:     []string{"Authorization", "Content-Type"},
 		AllowCredentials: true,
