@@ -100,7 +100,7 @@ func GithubCallback(cfg *config.Config, db *gorm.DB) gin.HandlerFunc {
 			return
 		}
 
-		frontendURL := "http://localhost:5173/?token=" + jwtToken
+		frontendURL := "https://vouch-ivory-three.vercel.app/?token=" + url.QueryEscape(jwtToken)
 		c.Redirect(http.StatusTemporaryRedirect, frontendURL)
 
 	}

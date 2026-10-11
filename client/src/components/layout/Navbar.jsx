@@ -16,7 +16,7 @@ function Navbar({ theme, toggleTheme }) {
   };
 
   const handleGithubLogin = () => {
-    window.location.href = "http://localhost:8080/auth/github";
+    window.location.href = "https://vouch-krrq.onrender.com/auth/github";
   };
 
   return (

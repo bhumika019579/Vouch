@@ -1,1 +1,1 @@
-export const getGithubLoginUrl = () => "http://localhost:8080/auth/github";
+export const getGithubLoginUrl = () => "https://vouch-krrq.onrender.com/auth/github";
