@@ -1,6 +1,7 @@
 package main
 
 import (
+	"log"
 	"net/http"
 
 	"github.com/bhumika019579/Vouch/server/internal/config"
@@ -15,6 +16,11 @@ func main() {
 	database := db.Connect(cfg)
 	_ = database
 	r := gin.Default()
+	r.Use(func(c *gin.Context) {
+    log.Printf("REQUEST: %s %s", c.Request.Method, c.Request.URL.Path)
+    c.Next()
+    log.Printf("RESPONSE: %s %s -> %d", c.Request.Method, c.Request.URL.Path, c.Writer.Status())
+})
 	r.Use(cors.New(cors.Config{
 		AllowOrigins:     []string{"https://vouch-ivory-three.vercel.app/"},
 		AllowMethods:     []string{"GET", "POST", "PATCH", "DELETE", "OPTIONS"},
