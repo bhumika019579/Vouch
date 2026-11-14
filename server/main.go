@@ -9,12 +9,10 @@ import (
 	"github.com/bhumika019579/Vouch/server/internal/routes"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
+	"gorm.io/gorm"
 )
 
-func main() {
-	cfg := config.LoadConfig()
-	database := db.Connect(cfg)
-	_ = database
+	func setupRouter(cfg *config.Config, database *gorm.DB) *gin.Engine{
 	r := gin.Default()
 	r.Use(func(c *gin.Context) {
     log.Printf("REQUEST: %s %s", c.Request.Method, c.Request.URL.Path)
@@ -33,5 +31,11 @@ func main() {
 		})
 	})
 	routes.SetUpRoutes(r, cfg, database)
+	return r
+}
+func main() {
+	cfg := config.LoadConfig()
+	database := db.Connect(cfg)
+	r := setupRouter(cfg,database)
 	r.Run(":" + cfg.Port)
 }
