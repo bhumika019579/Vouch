@@ -53,6 +53,27 @@ Vouch integrates **Groq** to provide AI-powered functionality within the platfor
 ### Secure Backend
 
 The backend uses **JWT authentication, protected API routes, and environment-based secret management** to secure application data and authenticated operations.
+![Go Tests](https://github.com/bhumika019579/Vouch/actions/workflows/test.yaml/badge.svg)
+
+## Testing
+
+API tests use Go's `testing` package, `net/http/httptest` and `testify/assert`. They send requests straight into the Gin router, so no server, port or database is needed. GitHub Actions runs them on every push.
+
+### Run the tests
+    cd server
+    go test ./... -v
+    go test ./... -cover
+
+### What is covered
+| Test | What it checks |
+|---|---|
+| `TestHealthEndpoint` | `GET /health` returns 200 and `{"status":"ok"}` |
+| `TestProtectedRoutesWithoutToken` | All 9 `/api` routes return 401 with no token |
+| `TestProtectedRoutesWithInvalidToken` | All 9 `/api` routes return 401 with a fake token |
+| `TestUnknownRoute` | An unknown route returns 404 |
+
+### Not covered yet
+Public routes and valid-token flows, which need a test database.
 
 ## Tech Stack
 
